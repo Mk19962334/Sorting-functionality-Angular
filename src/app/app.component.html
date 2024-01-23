@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<div class="search-container">
+  <input type="text" placeholder="Serach Id, Name or Country Of Person" [(ngModel)]="searchText">
+</div>
+
+<div class="container">
+  <h2>Person Data</h2>
+  <p>Containing person and country information</p>            
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th (click)="sort('id')">Sr No &nbsp;<i class="fa fa-sort"></i></th>
+        <th (click)="sort('id')">Name &nbsp;<i class="fa fa-sort"></i></th>
+        <th (click)="sort('id')">Country &nbsp;<i class="fa fa-sort"></i></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data| filter : searchText  | orderBy :key :reverse">
+        <td>{{item.id}}</td>
+        <td>{{item.Name}}</td>
+        <td>{{item.Country}}</td>   
+         </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
